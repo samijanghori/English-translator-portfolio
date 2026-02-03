@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samiullah Mohammadi | Complete Persian/English Language Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --success-color: #4CAF50;
+            --warning-color: #FF9800;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #fefefe;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.05) 0%, rgba(76, 201, 240, 0.05) 100%);
+            padding-top: 150px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--dark-color);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: var(--transition);
+        }
+
+        .hero-image img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray-color);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            height: 500px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: rgba(248, 249, 250, 0.5);
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            z-index: 2;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .service-link i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Service Categories */
+        .service-category {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .category-title h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .service-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .service-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .service-item p {
+            color: var(--gray-color);
+            font-size: 0.95rem;
+        }
+
+        /* How It Works Section */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 auto 20px;
+        }
+
+        /* Portfolio/My Work Section */
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            background-color: transparent;
+            border: 2px solid #e9ecef;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 30px 20px 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.05) 0%, rgba(76, 201, 240, 0.05) 100%);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(67, 97, 238, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content, .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .service-item .btn-sample {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.service-item .btn-sample:hover {
+    background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-language"></i> Samiullah Mohammadi
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#work">My Work</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Complete <span>Persian & English</span> Language Services</h1>
+                <p>Professional translation, transcription, voice-over, and language solutions for all your English-Persian communication needs. Fast, accurate, and culturally appropriate services for individuals and businesses.</p>
+                <a href="#contact" class="btn">Get Your Project Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="img/333.JPG" alt="Language Services">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Samiullah Mohammadi - Professional Language Specialist</h3>
+                    <p>Hello! I'm Samiullah Mohammadi, a certified language specialist with over 8 years of experience in Persian-English language services. I provide comprehensive solutions for all your language needs.</p>
+                    <p>My services go beyond simple translation. I offer a complete suite of language solutions including transcription, voice-over, subtitling, and localization for both Persian (Farsi/Dari) and English.</p>
+                    <p>Whether you need documents translated, audio transcribed, or text converted to speech, I provide accurate, high-quality results with fast turnaround times.</p>
+                    
+                    <div class="skills">
+                        <span class="skill-tag">English to Persian Translation</span>
+                        <span class="skill-tag">Persian to English Translation</span>
+                        <span class="skill-tag">Audio Transcription</span>
+                        <span class="skill-tag">Text to Speech</span>
+                        <span class="skill-tag">Voice Over Services</span>
+                        <span class="skill-tag">Document Formatting</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="img/my_img.png" alt="Samiullah Mohammadi">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Complete Services</h2>
+            </div>
+
+            <!-- Translation Services -->
+            <div class="service-category">
+                <div class="category-title">
+                    <h3>Translation Services</h3>
+                </div>
+                <div class="services-grid">
+                   <div class="service-item">
+    <i class="fas fa-file-alt"></i>
+    <h4>Document Translation</h4>
+    <p>English ↔ Persian translation of legal, academic, business, and personal documents.</p>
+    <a href="service-document.html" class="btn-sample">View Sample</a>
+</div>
+
+                    <div class="service-item">
+                        <i class="fas fa-laptop"></i>
+                        <h4>Website Localization</h4>
+                        <p>Full website translation and cultural adaptation for Persian-speaking audiences.</p>
+                            <a href="service-website.html" class="btn-sample">View Sample</a>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-book"></i>
+                        <h4>Book Translation</h4>
+                        <p>Literary and non-fiction book translation with cultural sensitivity.</p>
+                                          <a href="#" class="btn-sample">View Sample</a>
+
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-certificate"></i>
+                        <h4>Certified Translation</h4>
+                        <p>Officially certified translations for legal and official purposes.</p>
+                                                 <a href="#" class="btn-sample">View Sample</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transcription Services -->
+            <div class="service-category">
+                <div class="category-title">
+                    <h3>Transcription Services</h3>
+                </div>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-microphone-alt"></i>
+                        <h4>Audio Transcription</h4>
+                        <p>English audio → Persian text transcription with timestamping.</p>
+                        <a href="english_audio.html" class="btn-sample">View Sample</a>
+
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-headphones"></i>
+                        <h4>Persian Audio Transcription</h4>
+                        <p>Persian audio → English text transcription for international clients.</p>
+                        <a href="#" class="btn-sample">View Sample</a>
+
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-video"></i>
+                        <h4>Video Transcription</h4>
+                        <p>Transcription of video content with speaker identification.</p>
+                        <a href="#" class="btn-sample">View Sample</a>
+
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-file-audio"></i>
+                        <h4>Interview Transcription</h4>
+                        <p>Accurate transcription of interviews, meetings, and conversations.</p>
+                         <a href="#" class="btn-sample">View Sample</a>
+                   
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text-to-Speech & Voice Services -->
+            <div class="service-category">
+                <div class="category-title">
+                    <h3>Text-to-Speech & Voice Services</h3>
+                </div>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-volume-up"></i>
+                        <h4>English Text to Speech</h4>
+                        <p>Convert English text to natural-sounding audio files.</p>
+                                            <a href="#" class="btn-sample">View Sample</a>
+
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-volume-up"></i>
+                        <h4>Persian Text to Speech</h4>
+                        <p>Convert Persian text to high-quality audio files.</p>
+                                                 <a href="#" class="btn-sample">View Sample</a>
+
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-microphone"></i>
+                        <h4>Voice Over Recording</h4>
+                        <p>Professional voice-over recording in both English and Persian.</p>
+                                                 <a href="#" class="btn-sample">View Sample</a>
+
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-closed-captioning"></i>
+                        <h4>Audiobook Creation</h4>
+                        <p>Create complete audiobooks from your text content.</p>
+                         <a href="#" class="btn-sample">View Sample</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Services -->
+            <div class="service-category">
+                <div class="category-title">
+                    <h3>Additional Language Services</h3>
+                </div>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-edit"></i>
+                        <h4>Proofreading & Editing</h4>
+                        <p>Professional editing and proofreading for both languages.</p>
+                         <a href="#" class="btn-sample">View Sample</a>
+
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-comments"></i>
+                        <h4>Interpretation</h4>
+                        <p>Live interpretation for meetings, conferences, and calls.</p>
+                         <a href="#" class="btn-sample">View Sample</a>
+
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-subscript"></i>
+                        <h4>Subtitling</h4>
+                        <p>Professional subtitling for videos and films.</p>
+                         <a href="#" class="btn-sample">View Sample</a>
+
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-globe"></i>
+                        <h4>Localization</h4>
+                        <p>Cultural adaptation of content for specific audiences.</p>
+                         <a href="#" class="btn-sample">View Sample</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Send Your Request</h3>
+                    <p>Contact me with details about your project - what you need, file formats, deadlines, and any specific requirements.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get a Quote</h3>
+                    <p>I'll review your request and provide a detailed quote with timeline and pricing within 24 hours.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Project Execution</h3>
+                    <p>Once approved, I'll start working on your project with regular updates on progress.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Delivery & Revisions</h3>
+                    <p>Receive your completed project with options for revisions to ensure complete satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio/My Work Section -->
+    <section id="work" class="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recent Projects</h2>
+            </div>
+            
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="translation">Translation</button>
+                <button class="filter-btn" data-filter="transcription">Transcription</button>
+                <button class="filter-btn" data-filter="voice">Voice Services</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="translation">
+                    <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Legal document translation" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Legal Contract Translation</h3>
+                        <p>English to Persian translation of business contracts</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="transcription">
+                    <img src="img/22.JPG" alt="Audio transcription" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Interview Transcription</h3>
+                        <p>Persian audio to English text transcription</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="voice">
+                    <img src="https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Text to speech" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Text to Audio Conversion</h3>
+                        <p>English educational content to Persian audio</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="translation">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Website localization" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>E-commerce Localization</h3>
+                        <p>Full website translation and adaptation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get a Free Quote</h3>
+                    <p>Have a project that needs language services? Contact me for a free quote and consultation. I typically respond within a few hours.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>samiullah@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone/WhatsApp</h4>
+                            <p>+1 (123) 456-7890</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Monday - Friday: 9 AM - 6 PM (GMT)</p>
+                            <p>Weekends: Available for urgent projects</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-skype"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select class="form-control" id="serviceType" required>
+                                <option value="" disabled selected>Select Service Needed</option>
+                                <option value="translation">Document Translation</option>
+                                <option value="transcription">Audio Transcription</option>
+                                <option value="text-to-speech">Text to Speech</option>
+                                <option value="voice-over">Voice Over</option>
+                                <option value="other">Other Service</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Project Details (Please include file types, word count, deadlines)" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Get Free Quote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-language"></i> Samiullah Mohammadi
+                    </a>
+                    <p>Professional Persian-English language services including translation, transcription, text-to-speech, and voice-over services.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#about">About Me</a>
+                    <a href="#services">Services</a>
+                    <a href="#work">My Work</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-services">
+                    <h4>Main Services</h4>
+                    <a href="#services">Translation</a>
+                    <a href="#services">Transcription</a>
+                    <a href="#services">Text to Speech</a>
+                    <a href="#services">Voice Over</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> samiullah@example.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-skype"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Samiullah Mohammadi - Complete Language Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Portfolio Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = contactForm.querySelector('input[type="text"]').value;
+            const email = contactForm.querySelector('input[type="email"]').value;
+            const service = document.getElementById('serviceType').value;
+            const message = contactForm.querySelector('textarea').value;
+            
+            // Show success message
+            alert(`Thank you ${name}! Your quote request for ${service} has been received. I will contact you at ${email} within 24 hours with a detailed quote.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const checkVisibility = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Initial check
+        checkVisibility();
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkVisibility);
+        
+        // Smooth Scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            }
+        });
+        
+        // Service item hover effects
+        document.querySelectorAll('.service-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

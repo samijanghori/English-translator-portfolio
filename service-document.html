@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Translation Samples | Samiullah Mohammadi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --success-color: #4CAF50;
+            --warning-color: #FF9800;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #fefefe;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .service-nav {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-logo i {
+            margin-right: 10px;
+        }
+
+        .back-to-portfolio {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .back-to-portfolio:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* Header */
+        .service-header {
+            text-align: center;
+            padding: 80px 0 40px;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.05) 0%, rgba(76, 201, 240, 0.05) 100%);
+        }
+
+        .service-header h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-header p {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Document Showcase */
+        .showcase-container {
+            padding: 60px 0;
+        }
+
+        .showcase-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .showcase-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark-color);
+            display: inline-block;
+        }
+
+        .showcase-title h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Document Comparison */
+        .document-comparison {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 80px;
+        }
+
+        .document-header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 25px 30px;
+        }
+
+        .document-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .document-type {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .document-content {
+            padding: 40px;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .document-column {
+            text-align: center;
+        }
+
+        .document-column h4 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            font-size: 1.3rem;
+        }
+
+        .document-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid #e9ecef;
+        }
+
+        .document-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .document-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .document-note {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+
+        /* Translation Details */
+        .translation-details {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: var(--border-radius);
+        }
+
+        .details-title {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .detail-item {
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .detail-item h5 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* More Samples */
+        .more-samples {
+            margin-top: 60px;
+        }
+
+        .samples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .sample-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .sample-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .sample-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .sample-info {
+            padding: 20px;
+        }
+
+        .sample-info h4 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        /* Process Section */
+        .process-section {
+            background-color: rgba(67, 97, 238, 0.05);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .process-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .process-title h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            counter-reset: step-counter;
+        }
+
+        .process-step {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            padding-top: 60px;
+            text-align: center;
+        }
+
+        .process-step:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--border-radius);
+            margin: 60px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: white;
+            color: var(--primary-color);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        .service-footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .service-footer p {
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Image Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--accent-color);
+        }
+
+        .modal-caption {
+            text-align: center;
+            color: white;
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        .zoom-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .zoom-btn {
+            background: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="service-nav">
+        <div class="container nav-content">
+            <a href="#" class="service-logo">
+                <i class="fas fa-file-alt"></i> Document Translation
+            </a>
+            <a href="index.html" class="back-to-portfolio">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="service-header">
+        <div class="container">
+            <h1>Document Translation Samples</h1>
+            <p>Professional English to Persian and Dari translations of legal documents, academic papers, business materials, and personal records. Each translation maintains the original meaning while adapting to cultural nuances.</p>
+        </div>
+    </header>
+
+    <!-- Document Showcase -->
+    <section class="showcase-container">
+        <div class="container">
+            <div class="showcase-title">
+                <h2>Recommendation Letter Translation Sample</h2>
+                <p style="color: var(--gray-color); margin-top: 10px;">English to Dari (Afghan Persian) - Real Client Work</p>
+            </div>
+
+            <!-- Document Comparison -->
+            <div class="document-comparison">
+                <div class="document-header">
+                    <h3>Letter of Recommendation Translation</h3>
+                    <span class="document-type">Academic • Professional • English to Dari</span>
+                </div>
+                <div class="document-content">
+                    <div class="comparison-container">
+                        <!-- English Version -->
+                        <div class="document-column">
+                            <h4>English Original</h4>
+                            <div class="document-image" onclick="openModal('englishModal')">
+                                <img src="img/doc/eng-version.JPG" alt="English Recommendation Letter">
+                            </div>
+                            <div class="document-note">
+                                <p><i class="fas fa-info-circle"></i> Click image to zoom and view details</p>
+                            </div>
+                            <div class="text-preview">
+                                <h5>Text Preview:</h5>
+                                <p>"I have known Andrew as a studious, diligent, and conscientious young man. During his internship and TA ship, he displayed exemplary clarity of thought..."</p>
+                            </div>
+                        </div>
+
+                        <!-- Persian/Dari Version -->
+                        <div class="document-column">
+                            <h4>Persian/Dari Translation</h4>
+                            <div class="document-image" onclick="openModal('persianModal')">
+                                <img src="img/doc/per-version.jpg" alt="Persian Recommendation Letter">
+                            </div>
+                            <div class="document-note">
+                                <p><i class="fas fa-info-circle"></i> Click image to zoom and view details</p>
+                            </div>
+                            <div class="text-preview">
+                                <h5>Text Preview:</h5>
+                                <p style="direction: rtl; text-align: right;">"...من اندرو را به عنوان یک مرد جوان مطالعه کننده، کوشا و با وجدان میشناسم. در جریان کارآموزی و دوره TA اش، او وضوح نمونه ای فکر را از خود نشان داد..."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Translation Details -->
+                    <div class="translation-details">
+                        <h4 class="details-title">Translation Highlights</h4>
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <h5><i class="fas fa-language"></i> Language Adaptation</h5>
+                                <p>Adapted for Dari-speaking audience in Afghanistan with appropriate terminology and cultural references.</p>
+                            </div>
+                            <div class="detail-item">
+                                <h5><i class="fas fa-file-signature"></i> Format Preservation</h5>
+                                <p>Maintained original document structure and professional formatting while adapting to Persian script.</p>
+                            </div>
+                            <div class="detail-item">
+                                <h5><i class="fas fa-user-tie"></i> Tone Consistency</h5>
+                                <p>Preserved formal academic tone while making it natural for Persian readers.</p>
+                            </div>
+                            <div class="detail-item">
+                                <h5><i class="fas fa-clock"></i> Turnaround</h5>
+                                <p>Completed within 24 hours with proofreading and client review included.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Samples -->
+            <div class="more-samples">
+                <h3 style="text-align: center; margin-bottom: 40px; color: var(--secondary-color);">More Document Translation Samples</h3>
+                <div class="samples-grid">
+                    <div class="sample-card">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Legal Document" class="sample-img">
+                        <div class="sample-info">
+                            <h4>Legal Contract Translation</h4>
+                            <p>English to Persian business agreement with legal terminology adaptation.</p>
+                        </div>
+                    </div>
+                    <div class="sample-card">
+                        <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Academic Paper" class="sample-img">
+                        <div class="sample-info">
+                            <h4>Academic Paper Translation</h4>
+                            <p>Research paper translation with technical terminology and citations.</p>
+                        </div>
+                    </div>
+                    <div class="sample-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Document" class="sample-img">
+                        <div class="sample-info">
+                            <h4>Business Proposal</h4>
+                            <p>Marketing and business document translation with localization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="process-title">
+                <h3>My Document Translation Process</h3>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <h4>Document Analysis</h4>
+                    <p>Review document type, terminology, formatting requirements, and cultural considerations.</p>
+                </div>
+                <div class="process-step">
+                    <h4>Translation & Adaptation</h4>
+                    <p>Accurate translation with cultural adaptation for the target audience (Iranian Persian or Afghan Dari).</p>
+                </div>
+                <div class="process-step">
+                    <h4>Proofreading & Editing</h4>
+                    <p>Thorough review for accuracy, consistency, and natural flow in the target language.</p>
+                </div>
+                <div class="process-step">
+                    <h4>Formatting & Delivery</h4>
+                    <p>Final formatting to match original document style and delivery in requested formats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need Professional Document Translation?</h2>
+            <p>Get accurate, culturally-adapted translations for your legal, academic, business, or personal documents. All translations include proofreading and formatting.</p>
+            <a href="index.html#contact" class="cta-button">
+                <i class="fas fa-envelope"></i> Request a Quote
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="service-footer">
+        <div class="container">
+            <p>&copy; 2023 Samiullah Mohammadi - Professional Translation Services. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Portfolio</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="service-website.html">Website Translation</a>
+                <a href="service-media.html">Media Translation</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for English Version -->
+    <div id="englishModal" class="modal">
+        <span class="close-modal" onclick="closeModal('englishModal')">&times;</span>
+        <div class="zoom-controls">
+            <button class="zoom-btn" onclick="zoomIn('englishImg')">+</button>
+            <button class="zoom-btn" onclick="zoomOut('englishImg')">-</button>
+            <button class="zoom-btn" onclick="resetZoom('englishImg')">⟲</button>
+        </div>
+        <img class="modal-content" id="englishImg" src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="English Recommendation Letter">
+        <div class="modal-caption">
+            <h3>English Original - Letter of Recommendation</h3>
+            <p>Formal academic recommendation letter for engineering position</p>
+        </div>
+    </div>
+
+    <!-- Modal for Persian Version -->
+    <div id="persianModal" class="modal">
+        <span class="close-modal" onclick="closeModal('persianModal')">&times;</span>
+        <div class="zoom-controls">
+            <button class="zoom-btn" onclick="zoomIn('persianImg')">+</button>
+            <button class="zoom-btn" onclick="zoomOut('persianImg')">-</button>
+            <button class="zoom-btn" onclick="resetZoom('persianImg')">⟲</button>
+        </div>
+        <img class="modal-content" id="persianImg" src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Persian Recommendation Letter">
+        <div class="modal-caption">
+            <h3>Persian/Dari Translation - توصیه‌نامه</h3>
+            <p>ترجمه حرفه‌ای به فارسی/دری با حفظ ساختار و لحن اصلی</p>
+        </div>
+    </div>
+
+    <script>
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
+
+        // Zoom Functions
+        let zoomLevel = 1;
+        const zoomStep = 0.2;
+
+        function zoomIn(imgId) {
+            zoomLevel += zoomStep;
+            document.getElementById(imgId).style.transform = `scale(${zoomLevel})`;
+        }
+
+        function zoomOut(imgId) {
+            if (zoomLevel > zoomStep) {
+                zoomLevel -= zoomStep;
+                document.getElementById(imgId).style.transform = `scale(${zoomLevel})`;
+            }
+        }
+
+        function resetZoom(imgId) {
+            zoomLevel = 1;
+            document.getElementById(imgId).style.transform = `scale(${zoomLevel})`;
+        }
+
+        // Image hover effects
+        document.querySelectorAll('.document-image').forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                this.style.cursor = 'zoom-in';
+            });
+        });
+
+        // Sample card animation
+        document.querySelectorAll('.sample-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+            card.classList.add('fade-in');
+        });
+
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            .fade-in {
+                opacity: 0;
+                transform: translateY(30px);
+                animation: fadeInUp 0.8s ease forwards;
+            }
+            
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .modal-content {
+                transition: transform 0.3s ease;
+                transform-origin: center center;
+            }
+            
+            .text-preview {
+                margin-top: 20px;
+                padding: 15px;
+                background: #f8f9fa;
+                border-radius: 8px;
+                border-left: 3px solid var(--primary-color);
+            }
+            
+            .text-preview h5 {
+                color: var(--secondary-color);
+                margin-bottom: 10px;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
