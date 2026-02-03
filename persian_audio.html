@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persian Audio Transcription Service | Samiullah Mohammadi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .service-nav {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-to-portfolio {
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border: 2px solid white;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-to-portfolio:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        .service-header {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+
+        .service-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.3;
+        }
+
+        .service-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        /* Audio Player Section */
+        .audio-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--primary);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+
+        .section-title i {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .audio-player-container {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 35px;
+            margin-bottom: 25px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .custom-audio-player {
+            width: 100%;
+            height: 50px;
+            margin: 20px 0;
+            border-radius: 25px;
+            background: white;
+        }
+
+        .audio-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 2px dashed #dee2e6;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--dark);
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 24px;
+        }
+
+        /* Special Message Card */
+        .special-message-card {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border-radius: var(--radius);
+            padding: 50px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .special-message-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .message-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5rem;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .message-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .message-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .message-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .message-author {
+            font-style: italic;
+            opacity: 0.9;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Transcription Tabs */
+        .transcription-tabs {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--accent);
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 35px;
+            border-bottom: 3px solid #e9ecef;
+            padding-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--gray);
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            background: rgba(67, 97, 238, 0.05);
+        }
+
+        .tab-btn:hover:not(.active) {
+            color: var(--secondary);
+            background: rgba(67, 97, 238, 0.05);
+        }
+
+        .tab-content {
+            min-height: 500px;
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        /* Transcript Styling */
+        .transcript-container {
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .transcript-line {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .transcript-line:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .timestamp {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(67, 97, 238, 0.2);
+        }
+
+        .transcript-text {
+            line-height: 1.8;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .persian-text {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--secondary);
+            border-right: 3px solid var(--accent);
+            padding-right: 15px;
+        }
+
+        .english-text {
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        /* Comparison View */
+        .comparison-view {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-view {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comparison-column {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 2px solid #f0f0f0;
+        }
+
+        .comparison-column h5 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #f0f0f0;
+            font-size: 1.3rem;
+        }
+
+        /* Analysis Section */
+        .analysis-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+            border-top: 5px solid var(--warning);
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .analysis-card {
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            border-left: 5px solid var(--warning);
+            transition: var(--transition);
+        }
+
+        .analysis-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .analysis-title {
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Service Features */
+        .features-section {
+            margin-top: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 35px 25px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            margin-top: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin-top: 25px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 30px auto 0;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: #f8f9fa;
+        }
+
+        .cta-button.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .service-footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .service-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .back-to-portfolio {
+                margin-top: 10px;
+            }
+            
+            .tabs-header {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .special-message-card {
+                padding: 30px 20px;
+            }
+            
+            .message-text {
+                font-size: 1.2rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .audio-section,
+            .transcription-tabs,
+            .analysis-section {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="service-nav">
+        <div class="container nav-content">
+            <a href="#" class="service-logo">
+                <i class="fas fa-transcript"></i> Persian Audio Transcription
+            </a>
+            <a href="index.html" class="back-to-portfolio">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="service-header">
+        <div class="container">
+            <h1>Persian Audio Transcription Service</h1>
+            <p>Professional transcription and translation of Persian audio content into English. Accurate, culturally-aware translations with precise time-stamping.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Audio Player Section -->
+            <section class="audio-section">
+                <h2 class="section-title">
+                    <i class="fas fa-volume-up"></i> Original Persian Audio File
+                </h2>
+                <div class="audio-player-container">
+                    <audio controls class="custom-audio-player" id="mainAudio">
+                        <!-- Replace with your audio file path from laptop -->
+                        <source src="music/333.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    
+                    <div class="audio-info">
+                        <div class="info-item">
+                            <i class="far fa-clock"></i>
+                            <span>Duration: ~45 seconds</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-language"></i>
+                            <span>Language: Persian (Farsi)</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-user"></i>
+                            <span>Speaker: Anusha</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-microphone"></i>
+                            <span>Quality: Studio Recording</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <button onclick="document.getElementById('mainAudio').play()" style="background: var(--primary); color: white; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: 600; transition: var(--transition); display: inline-flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-play"></i> Play Audio File
+                    </button>
+                    <p style="color: var(--gray); margin-top: 10px; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> Audio file path: C:/Users/YourUsername/Audio/Anusha_Message.mp3
+                    </p>
+                </div>
+            </section>
+
+            <!-- Special Message Card -->
+            <section class="special-message-card">
+                <i class="fas fa-bullhorn message-icon"></i>
+                <div class="message-content">
+                    <h3><i class="fas fa-quote-left"></i> Message from Anusha to the World</h3>
+                    
+                    <div class="message-text">
+                        "Say this sentence from me to all people of the world.<br>
+                        Say Anusha said:<br>
+                        Whoever you are<br>
+                        Whatever you are<br>
+                        Be the king of your own hell<br>
+                        Not a servant to someone else's heaven"
+                    </div>
+                    
+                    <div class="message-author">
+                        — Anusha's powerful message to humanity
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transcription Section -->
+            <section class="transcription-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="persian">
+                        <i class="fas fa-language"></i> Persian Original
+                    </button>
+                    <button class="tab-btn" data-tab="english">
+                        <i class="fas fa-globe"></i> English Translation
+                    </button>
+                    <button class="tab-btn" data-tab="comparison">
+                        <i class="fas fa-columns"></i> Side by Side
+                    </button>
+                    <button class="tab-btn" data-tab="analysis">
+                        <i class="fas fa-chart-bar"></i> Translation Analysis
+                    </button>
+                </div>
+
+                <div class="tab-content">
+                    <!-- Persian Original -->
+                    <div class="tab-pane active" id="persian">
+                        <div class="transcript-container">
+                            <div class="transcript-line">
+                                <span class="timestamp">00:00 - 00:10</span>
+                                <div class="transcript-text persian-text">
+                                    این جمله را از من به همه مردم دنیا بگید
+                                </div>
+                            </div>
+                            
+                            <div class="transcript-line">
+                                <span class="timestamp">00:11 - 00:15</span>
+                                <div class="transcript-text persian-text">
+                                    بگید انوشه گفت
+                                </div>
+                            </div>
+                            
+                            <div class="transcript-line">
+                                <span class="timestamp">00:16 - 00:20</span>
+                                <div class="transcript-text persian-text">
+                                    هر چه هستی 
+                                </div>
+                            </div>
+                            
+                            <div class="transcript-line">
+                                <span class="timestamp">00:21 - 00:25</span>
+                                <div class="transcript-text persian-text">
+                                    هر که هستی
+                                </div>
+                            </div>
+                            
+                            <div class="transcript-line">
+                                <span class="timestamp">00:26 - 00:35</span>
+                                <div class="transcript-text persian-text">
+                                    پادشاه جهنم خودت باش 
+                                </div>
+                            </div>
+                            
+                            <div class="transcript-line">
+                                <span class="timestamp">00:36 - 00:45</span>
+                                <div class="transcript-text persian-text">
+                                    نه خدمتکار بهشت دیگران
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- English Translation -->
+                    <div class="tab-pane" id="english">
+                        <div class="transcript-container">
+                            <div class="transcript-line">
+                                <span class="timestamp">00:00 - 00:10</span>
+                                <div class="transcript-text english-text">
+                                    "Say this sentence from me to all people of the world."
+                                </div>
+                            </div>
+                            
+                            <div class="transcript-line">
+                                <span class="timestamp">00:11 - 00:15</span>
+                                <div class="transcript-text english-text">
+                                    "Say Anusha said:"
+                                </div>
+                            </div>
+                            
+                            <div class="transcript-line">
+                                <span class="timestamp">00:16 - 00:20</span>
+                                <div class="transcript-text english-text">
+                                    "Whoever you are"
+                                </div>
+                            </div>
+                            
+                            <div class="transcript-line">
+                                <span class="timestamp">00:21 - 00:25</span>
+                                <div class="transcript-text english-text">
+                                    "Whatever you are"
+                                </div>
+                            </div>
+                            
+                            <div class="transcript-line">
+                                <span class="timestamp">00:26 - 00:35</span>
+                                <div class="transcript-text english-text">
+                                    "Be the king of your own hell"
+                                </div>
+                            </div>
+                            
+                            <div class="transcript-line">
+                                <span class="timestamp">00:36 - 00:45</span>
+                                <div class="transcript-text english-text">
+                                    "Not a servant to someone else's heaven"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comparison View -->
+                    <div class="tab-pane" id="comparison">
+                        <div class="comparison-view">
+                            <div class="comparison-column">
+                                <h5><i class="fas fa-language"></i> Persian (Original)</h5>
+                                <div class="transcript-line">
+                                    <span class="timestamp">00:00 - 00:45</span>
+                                    <p class="persian-text">
+                                        این جمله را از من به همه مردم دنیا بگید<br>
+                                        بگید انوشه گفت<br>
+                                        هر چه هستی<br>
+                                        هر که هستی<br>
+                                        پادشاه جهنم خودت باش<br>
+                                        نه خدمتکار بهشت دیگران
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="comparison-column">
+                                <h5><i class="fas fa-globe"></i> English (Translation)</h5>
+                                <div class="transcript-line">
+                                    <span class="timestamp">00:00 - 00:45</span>
+                                    <p class="english-text">
+                                        "Say this sentence from me to all people of the world.<br>
+                                        Say Anusha said:<br>
+                                        Whoever you are<br>
+                                        Whatever you are<br>
+                                        Be the king of your own hell<br>
+                                        Not a servant to someone else's heaven"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Translation Analysis -->
+                    <div class="tab-pane" id="analysis">
+                        <div class="analysis-section">
+                            <h3 style="color: var(--secondary); margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-search"></i> Translation Analysis
+                            </h3>
+                            
+                            <div class="analysis-grid">
+                                <div class="analysis-card">
+                                    <div class="analysis-title">
+                                        <i class="fas fa-balance-scale"></i> Cultural Adaptation
+                                    </div>
+                                    <p>The translation maintains the poetic rhythm while adapting cultural references. "پادشاه جهنم" becomes "king of your own hell" - preserving the metaphorical power.</p>
+                                </div>
+                                
+                                <div class="analysis-card">
+                                    <div class="analysis-title">
+                                        <i class="fas fa-bolt"></i> Emotional Impact
+                                    </div>
+                                    <p>The translation captures the raw emotional power of the original Persian. The contrast between "king" and "servant" is preserved perfectly.</p>
+                                </div>
+                                
+                                <div class="analysis-card">
+                                    <div class="analysis-title">
+                                        <i class="fas fa-gem"></i> Poetic Elements
+                                    </div>
+                                    <p>Parallel structure in Persian ("هر چه هستی / هر که هستی") is mirrored in English ("Whoever you are / Whatever you are") maintaining the poetic balance.</p>
+                                </div>
+                                
+                                <div class="analysis-card">
+                                    <div class="analysis-title">
+                                        <i class="fas fa-brain"></i> Philosophical Depth
+                                    </div>
+                                    <p>The translation successfully conveys the deep philosophical message about self-determination vs. living for others' approval.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Vocabulary Section -->
+            <section class="analysis-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book-open"></i> Key Vocabulary & Cultural Notes
+                </h2>
+                
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <div class="analysis-title">
+                            <i class="fas fa-crown"></i> پادشاه (Padeshah)
+                        </div>
+                        <p><strong>English:</strong> King, Monarch<br>
+                        <strong>Significance:</strong> In Persian culture, "پادشاه" carries connotations of ultimate authority and sovereignty, not just royalty.</p>
+                    </div>
+                    
+                    <div class="analysis-card">
+                        <div class="analysis-title">
+                            <i class="fas fa-fire"></i> جهنم (Jahannam)
+                        </div>
+                        <p><strong>English:</strong> Hell<br>
+                        <strong>Cultural Note:</strong> Used metaphorically here to represent personal struggles or difficult circumstances one controls.</p>
+                    </div>
+                    
+                    <div class="analysis-card">
+                        <div class="analysis-title">
+                            <i class="fas fa-cloud"></i> بهشت (Behesht)
+                        </div>
+                        <p><strong>English:</strong> Heaven, Paradise<br>
+                        <strong>Metaphorical Use:</strong> Represents others' ideals or expectations that one might serve at the expense of personal autonomy.</p>
+                    </div>
+                    
+                    <div class="analysis-card">
+                        <div class="analysis-title">
+                            <i class="fas fa-user-tie"></i> خدمتکار (Khedmatkar)
+                        </div>
+                        <p><strong>English:</strong> Servant, Attendant<br>
+                        <strong>Translation Choice:</strong> "Servant" was chosen over "slave" to maintain the power dynamic without extreme connotations.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Service Features -->
+            <section class="features-section">
+                <h2 style="text-align: center; color: var(--secondary); margin-bottom: 40px; font-size: 2.2rem;">
+                    <i class="fas fa-star"></i> Why Choose My Persian Transcription Service?
+                </h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>100% Accuracy</h3>
+                        <p>Native Persian speaker with complete understanding of dialects, accents, and cultural nuances.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Precise Timestamps</h3>
+                        <p>Accurate time coding for every sentence, perfect for subtitles and synchronization.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Cultural Adaptation</h3>
+                        <p>Not just translation - cultural adaptation that preserves the original message's spirit.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-export"></i>
+                        </div>
+                        <h3>Multiple Formats</h3>
+                        <p>SRT, VTT, TXT, Word, PDF - whatever format you need for your project.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need Persian Audio Transcribed?</h2>
+            <p style="max-width: 600px; margin: 0 auto 30px; opacity: 0.9; font-size: 1.1rem;">
+                From interviews and podcasts to speeches and messages like Anusha's, I provide accurate Persian-to-English transcription with cultural sensitivity.
+            </p>
+            
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                <a href="index.html#contact" class="cta-button">
+                    <i class="fas fa-paper-plane"></i> Send Audio for Transcription
+                </a>
+                <a href="tel:+1234567890" class="cta-button secondary">
+                    <i class="fas fa-phone"></i> Call for Urgent Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="service-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-transcript"></i> Samiullah Mohammadi
+                    </a>
+                    <p style="color: #adb5bd; margin-bottom: 20px;">Professional Persian-English Transcription & Translation Services</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-skype"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 20px; color: white;">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">
+                            <i class="fas fa-home"></i> Portfolio Home
+                        </a>
+                        <a href="service-interpretation.html">
+                            <i class="fas fa-microphone-alt"></i> Interpretation Services
+                        </a>
+                        <a href="service-document.html">
+                            <i class="fas fa-file-alt"></i> Document Translation
+                        </a>
+                        <a href="index.html#contact">
+                            <i class="fas fa-envelope"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 20px; color: white;">Services</h4>
+                    <div class="footer-links">
+                        <a href="#">
+                            <i class="fas fa-volume-up"></i> Audio Transcription
+                        </a>
+                        <a href="#">
+                            <i class="fas fa-closed-captioning"></i> Subtitling
+                        </a>
+                        <a href="#">
+                            <i class="fas fa-language"></i> Cultural Consultation
+                        </a>
+                        <a href="#">
+                            <i class="fas fa-headphones"></i> Audio Localization
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 20px; color: white;">Contact Info</h4>
+                    <p style="margin-bottom: 15px; color: #adb5bd; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-envelope"></i> samiullah@example.com
+                    </p>
+                    <p style="color: #adb5bd; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-phone"></i> +1 (234) 567-890
+                    </p>
+                    <p style="margin-top: 20px; color: #adb5bd; font-size: 0.9rem;">
+                        <i class="fas fa-clock"></i> Available: Mon-Fri 9AM-6PM EST<br>
+                        <i class="fas fa-bolt"></i> Urgent requests: 24/7 Response
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Samiullah Mohammadi. All rights reserved. | Professional Persian Audio Transcription Services</p>
+                <p style="margin-top: 10px; font-size: 0.85rem;">
+                    <i class="fas fa-audio-description"></i> Sample Project: Anusha's Message Transcription & Translation
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Hide all tab panes
+                document.querySelectorAll('.tab-pane').forEach(pane => {
+                    pane.classList.remove('active');
+                });
+                
+                // Show selected tab pane
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Audio player functionality
+        const audioPlayer = document.getElementById('mainAudio');
+        
+        // Format time display
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Highlight transcript lines based on audio time
+        audioPlayer.addEventListener('timeupdate', () => {
+            const currentTime = audioPlayer.currentTime;
+            const transcriptLines = document.querySelectorAll('.transcript-line');
+            
+            transcriptLines.forEach(line => {
+                const timestampSpan = line.querySelector('.timestamp');
+                if (timestampSpan) {
+                    const timeText = timestampSpan.textContent;
+                    const timeMatch = timeText.match(/(\d+):(\d+)\s*-\s*(\d+):(\d+)/);
+                    
+                    if (timeMatch) {
+                        const startMinutes = parseInt(timeMatch[1]);
+                        const startSeconds = parseInt(timeMatch[2]);
+                        const endMinutes = parseInt(timeMatch[3]);
+                        const endSeconds = parseInt(timeMatch[4]);
+                        
+                        const startTime = startMinutes * 60 + startSeconds;
+                        const endTime = endMinutes * 60 + endSeconds;
+                        
+                        if (currentTime >= startTime && currentTime <= endTime) {
+                            line.style.transform = 'translateX(15px)';
+                            line.style.boxShadow = '0 15px 30px rgba(67, 97, 238, 0.2)';
+                            line.style.background = 'linear-gradient(135deg, #f0f7ff, white)';
+                        } else {
+                            line.style.transform = 'translateX(0)';
+                            line.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.05)';
+                            line.style.background = 'white';
+                        }
+                    }
+                }
+            });
+        });
+
+        // Play audio and scroll to transcript
+        document.querySelectorAll('.transcript-line').forEach(line => {
+            line.addEventListener('click', () => {
+                const timestampSpan = line.querySelector('.timestamp');
+                if (timestampSpan) {
+                    const timeText = timestampSpan.textContent;
+                    const timeMatch = timeText.match(/(\d+):(\d+)/);
+                    
+                    if (timeMatch) {
+                        const minutes = parseInt(timeMatch[1]);
+                        const seconds = parseInt(timeMatch[2]);
+                        const timeInSeconds = minutes * 60 + seconds;
+                        
+                        audioPlayer.currentTime = timeInSeconds;
+                        audioPlayer.play();
+                    }
+                }
+            });
+        });
+
+        // Auto-play audio when tab changes to comparison
+        document.querySelector('[data-tab="comparison"]').addEventListener('click', () => {
+            setTimeout(() => {
+                if (!audioPlayer.paused) {
+                    audioPlayer.currentTime = 0;
+                    audioPlayer.play();
+                }
+            }, 300);
+        });
+
+        // Initialize audio player volume
+        audioPlayer.volume = 0.8;
+
+        // Display audio file path
+        const audioSource = document.querySelector('audio source');
+        if (audioSource) {
+            console.log('Audio file path:', audioSource.src);
+        }
+
+        // Mobile menu toggle (if needed)
+        const mobileMenuBtn = document.createElement('button');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        mobileMenuBtn.style.display = 'none';
+        mobileMenuBtn.className = 'mobile-menu-btn';
+        document.querySelector('.nav-content').appendChild(mobileMenuBtn);
+
+        // Responsive mobile menu
+        if (window.innerWidth <= 768) {
+            mobileMenuBtn.style.display = 'block';
+            const backToPortfolio = document.querySelector('.back-to-portfolio');
+            backToPortfolio.style.display = 'none';
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                backToPortfolio.style.display = backToPortfolio.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+
+        // Update on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 768) {
+                mobileMenuBtn.style.display = 'block';
+            } else {
+                mobileMenuBtn.style.display = 'none';
+                document.querySelector('.back-to-portfolio').style.display = 'flex';
+            }
+        });
+    </script>
+</body>
+</html>

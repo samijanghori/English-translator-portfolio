@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Interpretation Services | Samiullah Mohammadi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #4cc9f0;
+            --success: #4CAF50;
+            --warning: #FF9800;
+            --danger: #dc3545;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .service-nav {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-logo i {
+            margin-right: 10px;
+        }
+
+        .back-to-portfolio {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .back-to-portfolio:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Header */
+        .service-header {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+
+        .service-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Audio Demo Section */
+        .audio-demo-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 50px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .audio-player {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 30px auto;
+        }
+
+        .audio-visualizer {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, var(--light), white);
+            border-radius: 10px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .waveform {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+        }
+
+        .wave-bar {
+            width: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: height 0.3s ease;
+        }
+
+        .audio-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--light);
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: var(--dark);
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .control-btn {
+            background: var(--light);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .control-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .control-btn.primary {
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+        }
+
+        .progress-container {
+            flex-grow: 1;
+            max-width: 500px;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--light);
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+            transition: width 0.1s linear;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .volume-slider {
+            width: 80px;
+        }
+
+        /* Live Transcript */
+        .live-transcript {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .transcript-line {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .transcript-line.active {
+            background: var(--light);
+            border-left: 3px solid var(--primary);
+        }
+
+        .transcript-time {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .transcript-speaker {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .transcript-text {
+            line-height: 1.6;
+        }
+
+        .transcript-text.rtl {
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* Interpretation Types */
+        .types-section {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .type-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--primary);
+        }
+
+        .type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .type-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Transcript Section */
+        .transcript-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            margin: 60px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .transcript-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+
+        .transcript-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .dialogue-turn {
+            margin-bottom: 30px;
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .english-speech {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .english-speech:before {
+            content: '🇺🇸';
+            position: absolute;
+            left: -25px;
+            top: 20px;
+            font-size: 1.2rem;
+        }
+
+        .interpretation-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+            color: var(--warning);
+            font-weight: 500;
+        }
+
+        .persian-speech {
+            background: #f3e5f5;
+            padding: 20px;
+            border-radius: 10px;
+            border-right: 5px solid var(--accent);
+            direction: rtl;
+            text-align: right;
+            position: relative;
+        }
+
+        .persian-speech:before {
+            content: '🇮🇷';
+            position: absolute;
+            right: -25px;
+            top: 20px;
+            font-size: 1.2rem;
+        }
+
+        /* Services Grid */
+        .services-section {
+            margin: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .service-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* Equipment Section */
+        .equipment-section {
+            background: linear-gradient(135deg, var(--light), white);
+            border-radius: var(--radius);
+            padding: 50px;
+            margin: 60px 0;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .equipment-card {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .equipment-card:hover {
+            transform: scale(1.05);
+        }
+
+        .equipment-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            margin: 80px 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-quote {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .client-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* Certification Section */
+        .certification-section {
+            background: linear-gradient(135deg, var(--light), white);
+            border-radius: var(--radius);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .certification-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certification-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 80px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.open {
+            padding-bottom: 25px;
+            max-height: 300px;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            margin: 80px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 20px 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: var(--radius);
+            margin: 60px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 15px 40px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+        }
+
+        .cta-button.secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Footer */
+        .service-footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .service-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .audio-player {
+                padding: 25px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .pricing-card.popular {
+                transform: none;
+            }
+            
+            .audio-demo-section,
+            .transcript-section,
+            .equipment-section {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .price {
+                font-size: 2.5rem;
+            }
+            
+            .player-controls {
+                gap: 10px;
+            }
+            
+            .control-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .control-btn.primary {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="service-nav">
+        <div class="container nav-content">
+            <a href="#" class="service-logo">
+                <i class="fas fa-microphone-alt"></i> Interpretation Services
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a href="index.html" class="back-to-portfolio">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="service-header">
+        <div class="container">
+            <h1>Professional Interpretation Services</h1>
+            <p>Real-time English-Persian interpretation for medical consultations, business meetings, legal proceedings, and conferences. Bridging language gaps with accuracy and cultural sensitivity.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Audio Demo Section -->
+        <section class="audio-demo-section">
+            <h2 style="color: var(--secondary); margin-bottom: 15px;">
+                <i class="fas fa-volume-up"></i> Live Interpretation Audio Demo
+            </h2>
+            <p style="color: var(--gray); max-width: 600px; margin: 0 auto 20px;">
+                Listen to a real demonstration of medical consultation interpretation. Experience the accuracy and speed of professional interpretation.
+            </p>
+            
+            <div class="audio-player">
+                <!-- Audio Visualizer -->
+                <div class="audio-visualizer" id="audioVisualizer">
+                    <div class="waveform" id="waveform">
+                        <!-- Wave bars will be generated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Audio Title -->
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h3 style="color: var(--secondary); margin-bottom: 10px;">Medical Consultation Interpretation</h3>
+                    <p style="color: var(--gray);">
+                        <i class="fas fa-language"></i> English ↔ Persian | 
+                        <i class="fas fa-clock"></i> Duration: 2:45 |
+                        <i class="fas fa-user-md"></i> Medical Scenario
+                    </p>
+                </div>
+                
+                <!-- Player Controls -->
+                <div class="player-controls">
+                    <button class="control-btn" id="rewindBtn">
+                        <i class="fas fa-backward"></i>
+                    </button>
+                    
+                    <button class="control-btn primary" id="playPauseBtn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    
+                    <button class="control-btn" id="forwardBtn">
+                        <i class="fas fa-forward"></i>
+                    </button>
+                    
+                    <div class="progress-container">
+                        <div class="time-display">
+                            <span id="currentTime">0:00</span>
+                            <span id="duration">2:45</span>
+                        </div>
+                        <div class="progress-bar" id="progressBarContainer">
+                            <div class="progress" id="progressBar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="volume-control">
+                        <button class="control-btn" id="volumeBtn">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                        <input type="range" min="0" max="100" value="80" class="volume-slider" id="volumeSlider">
+                    </div>
+                </div>
+                
+                <!-- Additional Controls -->
+                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 25px; flex-wrap: wrap;">
+                    <button id="transcriptToggle" style="background: var(--light); border: 2px solid var(--primary); color: var(--primary); padding: 10px 25px; border-radius: 50px; cursor: pointer; font-weight: 600; transition: var(--transition); display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-closed-captioning"></i> Show Live Transcript
+                    </button>
+                    
+                    <button id="speedControl" style="background: var(--light); border: 2px solid var(--accent); color: var(--accent); padding: 10px 25px; border-radius: 50px; cursor: pointer; font-weight: 600; transition: var(--transition);">
+                        Speed: 1.0x
+                    </button>
+                    
+                    <a href="audio-files/interpretation-demo.mp3" download style="background: var(--primary); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: var(--transition); display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-download"></i> Download Audio
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Live Transcript -->
+            <div class="live-transcript" id="liveTranscript">
+                <h4 style="color: var(--secondary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-comments"></i> Live Audio Transcript
+                    <span style="font-size: 0.9rem; color: var(--gray); font-weight: normal; margin-left: auto;">
+                        <i class="fas fa-info-circle"></i> Transcript follows audio playback
+                    </span>
+                </h4>
+                
+                <div id="transcriptContent" style="max-height: 300px; overflow-y: auto; padding-right: 10px;">
+                    <!-- Transcript content will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- Audio Info -->
+            <div class="audio-info">
+                <div class="info-item">
+                    <i class="fas fa-language"></i>
+                    <span>Languages: English ↔ Persian/Dari</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-user-md"></i>
+                    <span>Scenario: Medical Consultation</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Response Time: 2-3 seconds</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-headphones"></i>
+                    <span>Audio Quality: Studio Recording</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interpretation Types -->
+        <section class="types-section">
+            <div class="section-title">
+                <h2>Interpretation Types</h2>
+            </div>
+            
+            <div class="types-grid">
+                <div class="type-card">
+                    <div class="type-icon">
+                        <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                    <h3>Simultaneous Interpretation</h3>
+                    <p>Real-time interpretation while speaker is talking. Perfect for conferences and large events.</p>
+                    <ul style="text-align: left; margin-top: 20px; padding-left: 20px;">
+                        <li>International Conferences</li>
+                        <li>Live Broadcasts</li>
+                        <li>Large Meetings</li>
+                    </ul>
+                </div>
+                
+                <div class="type-card">
+                    <div class="type-icon">
+                        <i class="fas fa-pause-circle"></i>
+                    </div>
+                    <h3>Consecutive Interpretation</h3>
+                    <p>Speaker pauses after each segment for interpretation. Ideal for negotiations and consultations.</p>
+                    <ul style="text-align: left; margin-top: 20px; padding-left: 20px;">
+                        <li>Business Negotiations</li>
+                        <li>Medical Consultations</li>
+                        <li>Legal Proceedings</li>
+                    </ul>
+                </div>
+                
+                <div class="type-card">
+                    <div class="type-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Remote Interpretation</h3>
+                    <p>Virtual interpretation via video conferencing platforms. Accessible from anywhere.</p>
+                    <ul style="text-align: left; margin-top: 20px; padding-left: 20px;">
+                        <li>Telemedicine</li>
+                        <li>Virtual Meetings</li>
+                        <li>Online Conferences</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transcript Section -->
+        <section class="transcript-section">
+            <div class="transcript-title">
+                <i class="fas fa-closed-captioning"></i>
+                <h2>Audio Transcript Sample</h2>
+            </div>
+            
+            <div class="transcript-content">
+                <!-- Turn 1 -->
+                <div class="dialogue-turn" style="animation-delay: 0.2s">
+                    <div class="english-speech">
+                        <strong>Dr. Smith (English):</strong>
+                        <p>"Good morning, I'm Dr. Smith. What brings you in today?"</p>
+                    </div>
+                    
+                    <div class="interpretation-arrow">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Simultaneous Interpretation</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    
+                    <div class="persian-speech">
+                        <strong>ترجمه همزمان (فارسی):</strong>
+                        <p>"صبح بخیر، من دکتر اسمیت هستم. امروز چه مشکلی دارید؟"</p>
+                    </div>
+                </div>
+                
+                <!-- Turn 2 -->
+                <div class="dialogue-turn" style="animation-delay: 0.4s">
+                    <div class="persian-speech">
+                        <strong>بیمار (فارسی):</strong>
+                        <p>"دکتر جان، من چند روز است که سر درد و تب دارم. هم‌چنین گلویم درد می‌کند."</p>
+                    </div>
+                    
+                    <div class="interpretation-arrow">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Consecutive Interpretation</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    
+                    <div class="english-speech">
+                        <strong>Interpretation (English):</strong>
+                        <p>"Doctor, I've had headache and fever for several days. Also, my throat hurts."</p>
+                    </div>
+                </div>
+                
+                <!-- Turn 3 -->
+                <div class="dialogue-turn" style="animation-delay: 0.6s">
+                    <div class="english-speech">
+                        <strong>Dr. Smith (English):</strong>
+                        <p>"Have you taken any medication? And how high is your fever?"</p>
+                    </div>
+                    
+                    <div class="interpretation-arrow">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Simultaneous Interpretation</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    
+                    <div class="persian-speech">
+                        <strong>ترجمه همزمان (فارسی):</strong>
+                        <p>"آیا دارویی مصرف کرده‌اید؟ و تب شما چقدر بالا است؟"</p>
+                    </div>
+                </div>
+                
+                <!-- Turn 4 -->
+                <div class="dialogue-turn" style="animation-delay: 0.8s">
+                    <div class="persian-speech">
+                        <strong>بیمار (فارسی):</strong>
+                        <p>"بله، از صبح دو قرص استامینوفن خورده‌ام. تبم حدود ۳۸٫۵ درجه است."</p>
+                    </div>
+                    
+                    <div class="interpretation-arrow">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Consecutive Interpretation</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    
+                    <div class="english-speech">
+                        <strong>Interpretation (English):</strong>
+                        <p>"Yes, I've taken two acetaminophen tablets since morning. My fever is around 38.5 degrees."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 25px; background: var(--light); border-radius: 10px;">
+                <h4 style="color: var(--secondary); margin-bottom: 15px;">
+                    <i class="fas fa-star"></i> Skills Demonstrated in Audio:
+                </h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div style="padding: 15px; background: white; border-radius: 8px; text-align: center;">
+                        <i class="fas fa-bolt" style="color: var(--warning); font-size: 1.5rem;"></i>
+                        <div style="margin-top: 10px; font-weight: 500;">Quick Response (2-3 sec)</div>
+                    </div>
+                    <div style="padding: 15px; background: white; border-radius: 8px; text-align: center;">
+                        <i class="fas fa-balance-scale" style="color: var(--primary); font-size: 1.5rem;"></i>
+                        <div style="margin-top: 10px; font-weight: 500;">100% Accuracy</div>
+                    </div>
+                    <div style="padding: 15px; background: white; border-radius: 8px; text-align: center;">
+                        <i class="fas fa-heartbeat" style="color: var(--danger); font-size: 1.5rem;"></i>
+                        <div style="margin-top: 10px; font-weight: 500;">Medical Terminology</div>
+                    </div>
+                    <div style="padding: 15px; background: white; border-radius: 8px; text-align: center;">
+                        <i class="fas fa-theater-masks" style="color: var(--accent); font-size: 1.5rem;"></i>
+                        <div style="margin-top: 10px; font-weight: 500;">Natural Tone & Flow</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Offered -->
+        <section class="services-section">
+            <div class="section-title">
+                <h2>Interpretation Services</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Medical Interpretation</h3>
+                    <p>Doctor-patient consultations, hospital visits, telemedicine, medical procedures explanation.</p>
+                    <div style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+                        <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                        Specialized medical terminology
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Legal Interpretation</h3>
+                    <p>Court proceedings, attorney meetings, depositions, immigration interviews, contract discussions.</p>
+                    <div style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+                        <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                        Certified legal interpreter
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Business Interpretation</h3>
+                    <p>Negotiations, meetings, presentations, factory visits, business dinners, contract signings.</p>
+                    <div style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+                        <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                        Business terminology expertise
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Academic Interpretation</h3>
+                    <p>University lectures, conferences, research presentations, thesis defenses, campus tours.</p>
+                    <div style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+                        <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                        Academic background
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment Section -->
+        <section class="equipment-section">
+            <h2 style="color: var(--secondary); text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-headset"></i> Professional Audio Equipment
+            </h2>
+            <p style="text-align: center; color: var(--gray); max-width: 600px; margin: 0 auto 40px;">
+                Studio-quality audio setup for crystal clear interpretation in any setting
+            </p>
+            
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <div class="equipment-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h4>Studio Microphone</h4>
+                    <p>Blue Yeti Pro for clear audio</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h4>Noise-Cancelling Headset</h4>
+                    <p>Bose QC35 for focus</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <h4>Wireless Systems</h4>
+                    <p>For mobile interpretation</p>
+                </div>
+                
+                <div class="equipment-card">
+                    <div class="equipment-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h4>Virtual Setup</h4>
+                    <p>Zoom, Teams, Skype ready</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <div class="testimonial-content">
+                    "The audio sample perfectly demonstrates Samiullah's interpretation skills. We hired him for our medical conference based on this demo, and his simultaneous interpretation was flawless. His ability to handle complex medical terminology while maintaining natural flow impressed all attendees."
+                </div>
+                <div class="client-info">
+                    <div class="client-avatar">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--secondary);">Dr. Reza Hosseini</h4>
+                        <p style="color: var(--gray);">Chair, International Medical Conference Tehran</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certification Section -->
+        <section class="certification-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Certifications & Qualifications</h2>
+                </div>
+                
+                <div class="certification-grid">
+                    <div class="certification-card">
+                        <div class="certification-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4>Certified Medical Interpreter</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; margin-top: 10px;">National Board of Certification for Medical Interpreters</p>
+                    </div>
+                    
+                    <div class="certification-card">
+                        <div class="certification-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>MA in Conference Interpreting</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; margin-top: 10px;">University of Geneva, Switzerland</p>
+                    </div>
+                    
+                    <div class="certification-card">
+                        <div class="certification-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h4>10+ Years Experience</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; margin-top: 10px;">500+ successful interpretation assignments completed</p>
+                    </div>
+                    
+                    <div class="certification-card">
+                        <div class="certification-icon">
+                            <i class="fas fa-passport"></i>
+                        </div>
+                        <h4>Specialized Terminology</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; margin-top: 10px;">Medical, Legal, Business, Technical glossaries</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Why use audio instead of video for interpretation demo?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Audio focuses purely on interpretation quality. It eliminates visual distractions and emphasizes what truly matters: clarity, accuracy, speed, and tone. Most interpretation work is audio-based (phone, conferences, remote meetings).</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How do you handle technical or specialized terminology?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I prepare specialized glossaries for each assignment. For medical cases, I study patient history and terminology. For technical projects, I review documentation in advance to ensure accuracy.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What equipment do I need for remote interpretation?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For remote sessions, you only need a computer with internet access and Zoom/Teams/Skype installed. I handle all technical aspects from my end with professional audio equipment.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Can you provide interpretation for specialized fields?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, I specialize in medical, legal, and technical interpretation. I have extensive glossaries and experience in these fields. I also research specific terminology before each assignment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section">
+            <div class="section-title">
+                <h2>Pricing & Packages</h2>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Remote Interpretation</h3>
+                    <div class="price">$50<span style="font-size: 1rem; color: var(--gray);">/hour</span></div>
+                    <ul style="text-align: left; margin: 25px 0; padding-left: 20px;">
+                        <li>Virtual meetings via Zoom/Teams</li>
+                        <li>Business/General topics</li>
+                        <li>Email support</li>
+                        <li>24-hour booking notice</li>
+                    </ul>
+                    <a href="index.html#contact" class="cta-button" style="padding: 12px 30px; font-size: 1rem;">
+                        Book Remote Session
+                    </a>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <h3>On-Site Interpretation</h3>
+                    <div class="price">$80<span style="font-size: 1rem; color: var(--gray);">/hour</span></div>
+                    <ul style="text-align: left; margin: 25px 0; padding-left: 20px;">
+                        <li>In-person meetings & consultations</li>
+                        <li>Medical/Legal/Business</li>
+                        <li>Priority support</li>
+                        <li>Same-day booking available</li>
+                        <li>Professional equipment included</li>
+                    </ul>
+                    <a href="index.html#contact" class="cta-button" style="padding: 12px 30px; font-size: 1rem; background: var(--primary); color: white;">
+                        <i class="fas fa-crown"></i> Book On-Site
+                    </a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Conference Package</h3>
+                    <div class="price">$600<span style="font-size: 1rem; color: var(--gray);">/day</span></div>
+                    <ul style="text-align: left; margin: 25px 0; padding-left: 20px;">
+                        <li>Full-day conferences</li>
+                        <li>Simultaneous interpretation booth</li>
+                        <li>Team of interpreters available</li>
+                        <li>Full equipment setup</li>
+                        <li>Advance preparation & glossary</li>
+                    </ul>
+                    <a href="index.html#contact" class="cta-button" style="padding: 12px 30px; font-size: 1rem;">
+                        Contact for Conference
+                    </a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; color: var(--gray); font-size: 0.9rem;">
+                <p><i class="fas fa-info-circle"></i> Minimum booking: 1 hour. Discounts available for long-term contracts.</p>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Bridge Language Barriers?</h2>
+            <p style="max-width: 600px; margin: 0 auto 30px; opacity: 0.9; font-size: 1.1rem;">
+                Listen to the demo and experience professional interpretation. Book a session for your medical consultation, business meeting, or conference.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="cta-button">
+                    <i class="fas fa-calendar-check"></i> Book a Consultation
+                </a>
+                <a href="tel:+1234567890" class="cta-button secondary">
+                    <i class="fas fa-phone"></i> Call for Urgent Needs
+                </a>
+                <a href="service-document.html" class="cta-button secondary">
+                    <i class="fas fa-file-alt"></i> View Translation Services
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="service-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-microphone-alt"></i> Samiullah Mohammadi
+                    </a>
+                    <p>Professional English-Persian Interpretation Services</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-skype"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 20px;">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Portfolio</a>
+                        <a href="service-document.html">Document Translation</a>
+                        <a href="service-audio.html">Audio Transcription</a>
+                        <a href="index.html#contact">Contact</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 20px;">Services</h4>
+                    <div class="footer-links">
+                        <a href="#simultaneous">Simultaneous Interpretation</a>
+                        <a href="#consecutive">Consecutive Interpretation</a>
+                        <a href="#remote">Remote Interpretation</a>
+                        <a href="#medical">Medical Interpretation</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 20px;">Contact Info</h4>
+                    <p style="margin-bottom: 10px; color: #adb5bd;">
+                        <i class="fas fa-envelope"></i> samiullah@example.com
+                    </p>
+                    <p style="color: #adb5bd;">
+                        <i class="fas fa-phone"></i> +1 (234) 567-890
+                    </p>
+                    <p style="margin-top: 15px; color: #adb5bd; font-size: 0.9rem;">
+                        Available: Mon-Fri 9AM-6PM GMT<br>
+                        Urgent requests: 24/7
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Samiullah Mohammadi. All rights reserved. | Professional Interpretation Services</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">
+                    <i class="fas fa-volume-up"></i> Audio Demo: Medical Consultation Interpretation | Duration: 2:45
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Audio Player Class
+        class AudioPlayer {
+            constructor() {
+                this.audio = new Audio();
+                this.isPlaying = false;
+                this.playbackRate = 1.0;
+                this.isMuted = false;
+                this.previousVolume = 0.8;
+                
+                // DOM Elements
+                this.playPauseBtn = document.getElementById('playPauseBtn');
+                this.rewindBtn = document.getElementById('rewindBtn');
+                this.forwardBtn = document.getElementById('forwardBtn');
+                this.volumeBtn = document.getElementById('volumeBtn');
+                this.volumeSlider = document.getElementById('volumeSlider');
+                this.progressBar = document.getElementById('progressBar');
+                this.progressBarContainer = document.getElementById('progressBarContainer');
+                this.currentTimeEl = document.getElementById('currentTime');
+                this.durationEl = document.getElementById('duration');
+                this.transcriptToggle = document.getElementById('transcriptToggle');
+                this.liveTranscript = document.getElementById('liveTranscript');
+                this.speedControl = document.getElementById('speedControl');
+                this.waveform = document.getElementById('waveform');
+                this.transcriptContent = document.getElementById('transcriptContent');
+                
+                // Initialize
+                this.init();
+            }
+            
+            init() {
+                // Set audio source (replace with your audio file)
+                this.audio.src = 'audio-files/interpretation-demo.mp3';
+                this.audio.preload = 'metadata';
+                
+                // Set initial volume
+                this.audio.volume = this.volumeSlider.value / 100;
+                this.previousVolume = this.audio.volume;
+                
+                // Set playback rate
+                this.audio.playbackRate = this.playbackRate;
+                
+                // Generate waveform
+                this.generateWaveform();
+                
+                // Load transcript
+                this.loadTranscript();
+                
+                // Event Listeners
+                this.setupEventListeners();
+                
+                // Update duration when loaded
+                this.audio.addEventListener('loadedmetadata', () => {
+                    this.durationEl.textContent = this.formatTime(this.audio.duration);
+                });
+                
+                // Update time while playing
+                this.audio.addEventListener('timeupdate', () => {
+                    this.updateProgress();
+                    this.highlightTranscript();
+                });
+                
+                // Handle audio end
+                this.audio.addEventListener('ended', () => {
+                    this.isPlaying = false;
+                    this.playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    this.animateWaveform(false);
+                });
+            }
+            
+            setupEventListeners() {
+                // Play/Pause
+                this.playPauseBtn.addEventListener('click', () => this.togglePlay());
+                
+                // Rewind 10 seconds
+                this.rewindBtn.addEventListener('click', () => {
+                    this.audio.currentTime = Math.max(0, this.audio.currentTime - 10);
+                });
+                
+                // Forward 10 seconds
+                this.forwardBtn.addEventListener('click', () => {
+                    this.audio.currentTime = Math.min(this.audio.duration, this.audio.currentTime + 10);
+                });
+                
+                // Volume control
+                this.volumeSlider.addEventListener('input', (e) => {
+                    this.audio.volume = e.target.value / 100;
+                    this.previousVolume = this.audio.volume;
+                    this.updateVolumeIcon();
+                });
+                
+                // Mute/Unmute
+                this.volumeBtn.addEventListener('click', () => this.toggleMute());
+                
+                // Progress bar click
+                this.progressBarContainer.addEventListener('click', (e) => {
+                    const rect = this.progressBarContainer.getBoundingClientRect();
+                    const percent = (e.clientX - rect.left) / rect.width;
+                    this.audio.currentTime = percent * this.audio.duration;
+                });
+                
+                // Transcript toggle
+                this.transcriptToggle.addEventListener('click', () => this.toggleTranscript());
+                
+                // Speed control
+                this.speedControl.addEventListener('click', () => this.changeSpeed());
+            }
+            
+            togglePlay() {
+                if (this.isPlaying) {
+                    this.audio.pause();
+                    this.playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    this.animateWaveform(false);
+                } else {
+                    this.audio.play();
+                    this.playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    this.animateWaveform(true);
+                }
+                this.isPlaying = !this.isPlaying;
+            }
+            
+            toggleMute() {
+                this.isMuted = !this.isMuted;
+                if (this.isMuted) {
+                    this.audio.volume = 0;
+                    this.volumeSlider.value = 0;
+                } else {
+                    this.audio.volume = this.previousVolume;
+                    this.volumeSlider.value = this.previousVolume * 100;
+                }
+                this.updateVolumeIcon();
+            }
+            
+            updateVolumeIcon() {
+                if (this.audio.volume === 0 || this.isMuted) {
+                    this.volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                } else if (this.audio.volume < 0.5) {
+                    this.volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+                } else {
+                    this.volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                }
+            }
+            
+            updateProgress() {
+                if (!isNaN(this.audio.duration)) {
+                    const percent = (this.audio.currentTime / this.audio.duration) * 100;
+                    this.progressBar.style.width = `${percent}%`;
+                    this.currentTimeEl.textContent = this.formatTime(this.audio.currentTime);
+                }
+            }
+            
+            toggleTranscript() {
+                if (this.liveTranscript.style.display === 'none' || !this.liveTranscript.style.display) {
+                    this.liveTranscript.style.display = 'block';
+                    this.transcriptToggle.innerHTML = '<i class="fas fa-times"></i> Hide Transcript';
+                } else {
+                    this.liveTranscript.style.display = 'none';
+                    this.transcriptToggle.innerHTML = '<i class="fas fa-closed-captioning"></i> Show Live Transcript';
+                }
+            }
+            
+            changeSpeed() {
+                const speeds = [0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0];
+                const currentIndex = speeds.indexOf(this.playbackRate);
+                this.playbackRate = speeds[(currentIndex + 1) % speeds.length];
+                this.audio.playbackRate = this.playbackRate;
+                this.speedControl.textContent = `Speed: ${this.playbackRate}x`;
+            }
+            
+            generateWaveform() {
+                // Create 60 wave bars
+                for (let i = 0; i < 60; i++) {
+                    const bar = document.createElement('div');
+                    bar.className = 'wave-bar';
+                    bar.style.height = `${Math.random() * 80 + 20}px`;
+                    bar.style.opacity = Math.random() * 0.5 + 0.5;
+                    this.waveform.appendChild(bar);
+                }
+            }
+            
+            animateWaveform(playing) {
+                const bars = this.waveform.querySelectorAll('.wave-bar');
+                
+                if (playing) {
+                    bars.forEach((bar, index) => {
+                        bar.style.animation = `wave ${1 + Math.random()}s infinite ${index * 0.05}s alternate`;
+                    });
+                } else {
+                    bars.forEach(bar => {
+                        bar.style.animation = 'none';
+                    });
+                }
+            }
+            
+            loadTranscript() {
+                const transcriptData = [
+                    { time: 0, speaker: "Dr. Smith (English)", text: "Good morning, I'm Dr. Smith. What brings you in today?", lang: "en" },
+                    { time: 3, speaker: "ترجمه (فارسی)", text: "صبح بخیر، من دکتر اسمیت هستم. امروز چه مشکلی دارید؟", lang: "fa" },
+                    { time: 8, speaker: "بیمار (فارسی)", text: "دکتر جان، من چند روز است که سر درد و تب دارم. هم‌چنین گلویم درد می‌کند.", lang: "fa" },
+                    { time: 15, speaker: "Interpretation (English)", text: "Doctor, I've had headache and fever for several days. Also, my throat hurts.", lang: "en" },
+                    { time: 22, speaker: "Dr. Smith (English)", text: "Have you taken any medication? And how high is your fever?", lang: "en" },
+                    { time: 27, speaker: "ترجمه (فارسی)", text: "آیا دارویی مصرف کرده‌اید؟ و تب شما چقدر بالا است؟", lang: "fa" },
+                    { time: 32, speaker: "بیمار (فارسی)", text: "بله، از صبح دو قرص استامینوفن خورده‌ام. تبم حدود ۳۸٫۵ درجه است.", lang: "fa" },
+                    { time: 40, speaker: "Interpretation (English)", text: "Yes, I've taken two acetaminophen tablets since morning. My fever is around 38.5 degrees.", lang: "en" },
+                    { time: 48, speaker: "Dr. Smith (English)", text: "Let me examine your throat. Please open wide and say 'ah'.", lang: "en" },
+                    { time: 54, speaker: "ترجمه (فارسی)", text: "بگذارید گلویتان را معاینه کنم. لطفاً دهانتان را باز کنید و بگویید 'آ'", lang: "fa" }
+                ];
+                
+                transcriptData.forEach(item => {
+                    const line = document.createElement('div');
+                    line.className = 'transcript-line';
+                    line.dataset.time = item.time;
+                    
+                    line.innerHTML = `
+                        <div class="transcript-time">${this.formatTime(item.time)}</div>
+                        <div class="transcript-speaker">${item.speaker}</div>
+                        <div class="transcript-text ${item.lang === 'fa' ? 'rtl' : ''}">${item.text}</div>
+                    `;
+                    
+                    this.transcriptContent.appendChild(line);
+                });
+            }
+            
+            highlightTranscript() {
+                const currentTime = Math.floor(this.audio.currentTime);
+                const lines = this.transcriptContent.querySelectorAll('.transcript-line');
+                
+                lines.forEach(line => {
+                    const time = parseInt(line.dataset.time);
+                    
+                    if (time <= currentTime && currentTime < time + 7) {
+                        line.classList.add('active');
+                        // Scroll to active line
+                        if (line.classList.contains('active')) {
+                            line.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    } else {
+                        line.classList.remove('active');
+                    }
+                });
+            }
+            
+            formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            }
+        }
+        
+        // FAQ Toggle Function
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            // Toggle the answer
+            answer.classList.toggle('open');
+            
+            // Rotate the icon
+            if (answer.classList.contains('open')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+        
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.back-to-portfolio');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Animate dialogue turns on scroll
+        const observerOptions = {
+            threshold: 0.2
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all dialogue turns
+        document.querySelectorAll('.dialogue-turn').forEach((turn) => {
+            observer.observe(turn);
+        });
+        
+        // Add wave animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes wave {
+                0% { height: 20%; opacity: 0.5; }
+                50% { height: 80%; opacity: 1; }
+                100% { height: 40%; opacity: 0.7; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initialize audio player when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const player = new AudioPlayer();
+            
+            // Add waveform animation style
+            const waveStyle = document.createElement('style');
+            waveStyle.textContent = `
+                @keyframes wave {
+                    0% { transform: scaleY(0.3); }
+                    50% { transform: scaleY(1); }
+                    100% { transform: scaleY(0.3); }
+                }
+            `;
+            document.head.appendChild(waveStyle);
+        });
+    </script>
+</body>
+</html>
