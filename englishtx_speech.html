@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Service | Blockchain Sample | Samiullah Mohammadi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .service-nav {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-to-portfolio {
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border: 2px solid white;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-to-portfolio:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        .service-header {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+
+        .service-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.3;
+        }
+
+        .service-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Client Project Card */
+        .client-project-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 50px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+            border-top: 8px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .client-project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(76, 201, 240, 0.05));
+            border-radius: 0 0 0 100px;
+            z-index: 1;
+        }
+
+        .client-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .client-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+        }
+
+        .client-info h2 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .client-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .client-tag {
+            padding: 8px 20px;
+            background: var(--light);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Project Details */
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-detail-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .project-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-value {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* Original Text Section */
+        .original-text-section {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+            border-left: 8px solid var(--warning);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+
+        .section-title i {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .original-text-box {
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .text-label {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--warning);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Audio Delivery Section */
+        .audio-delivery-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 50px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+            border-top: 8px solid var(--success);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .delivery-header {
+            margin-bottom: 40px;
+        }
+
+        .delivery-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--success), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 3rem;
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .audio-player-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 40px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .custom-audio-player {
+            width: 100%;
+            height: 60px;
+            margin: 20px 0;
+            border-radius: 30px;
+            background: white;
+        }
+
+        .audio-quality-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px dashed #dee2e6;
+        }
+
+        .quality-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--dark);
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .quality-item i {
+            color: var(--success);
+            font-size: 1.2rem;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .download-btn {
+            padding: 15px 35px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(67, 97, 238, 0.4);
+            background: var(--secondary);
+        }
+
+        .download-btn.secondary {
+            background: var(--success);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        /* TTS Features */
+        .tts-features {
+            margin: 60px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 5px solid var(--primary);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            margin-top: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 15px 40px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        .service-footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .service-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .client-project-card,
+            .audio-delivery-section {
+                padding: 30px 20px;
+            }
+            
+            .download-buttons,
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .download-btn,
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .original-text-box {
+                padding: 25px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .client-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="service-nav">
+        <div class="container nav-content">
+            <a href="#" class="service-logo">
+                <i class="fas fa-volume-up"></i> Text to Speech Service
+            </a>
+            <a href="index.html" class="back-to-portfolio">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="service-header">
+        <div class="container">
+            <h1>Professional Text to Speech Service</h1>
+            <p>High-quality English voice over and narration for your content. See a sample project delivered to a client.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Client Project Card -->
+        <section class="client-project-card fade-in">
+            <div class="client-header">
+                <div class="client-avatar">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="client-info">
+                    <h2>Client Project: Blockchain Technology Explanation</h2>
+                    <p style="color: var(--gray); margin-bottom: 15px;">
+                        Delivered audio narration for an educational tech company
+                    </p>
+                    <div class="client-tags">
+                        <span class="client-tag">
+                            <i class="fas fa-building"></i> Tech Education Company
+                        </span>
+                        <span class="client-tag">
+                            <i class="fas fa-calendar"></i> Delivered: November 2023
+                        </span>
+                        <span class="client-tag">
+                            <i class="fas fa-clock"></i> Turnaround: 24 Hours
+                        </span>
+                        <span class="client-tag">
+                            <i class="fas fa-check-circle"></i> Status: Delivered & Approved
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-details">
+                <div class="project-detail-card">
+                    <div class="detail-label">
+                        <i class="fas fa-file-alt"></i> Project Type
+                    </div>
+                    <div class="detail-value">Educational Narration</div>
+                </div>
+                
+                <div class="project-detail-card">
+                    <div class="detail-label">
+                        <i class="fas fa-microphone"></i> Voice Type
+                    </div>
+                    <div class="detail-value">Professional & Clear</div>
+                </div>
+                
+                <div class="project-detail-card">
+                    <div class="detail-label">
+                        <i class="fas fa-clock"></i> Audio Duration
+                    </div>
+                    <div class="detail-value">31 Seconds</div>
+                </div>
+                
+                <div class="project-detail-card">
+                    <div class="detail-label">
+                        <i class="fas fa-language"></i> Language
+                    </div>
+                    <div class="detail-value">English (US Accent)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Original Text Section -->
+        <section class="original-text-section fade-in">
+            <h2 class="section-title">
+                <i class="fas fa-file-text"></i> Original Text from Client
+            </h2>
+            <div class="original-text-box">
+                <div class="text-label">Client's Script</div>
+                <p>
+                    "Blockchain Technology Simplified: Imagine a digital ledger that's shared across a network of computers. 
+                    Each transaction is recorded as a 'block' and linked to the previous one, creating a secure, unchangeable chain. 
+                    This decentralized system eliminates the need for intermediaries, making transactions faster and more secure. 
+                    Whether you're exploring cryptocurrency, smart contracts, or secure data management, blockchain technology 
+                    is reshaping how we think about trust and transparency in the digital age."
+                </p>
+            </div>
+            
+            <div style="margin-top: 25px; padding: 20px; background: rgba(67, 97, 238, 0.05); border-radius: 10px; border-left: 4px solid var(--primary);">
+                <p style="color: var(--dark); display: flex; align-items: flex-start; gap: 10px;">
+                    <i class="fas fa-lightbulb" style="color: var(--warning); margin-top: 5px;"></i>
+                    <span><strong>Client Brief:</strong> "We need a clear, engaging narration that explains blockchain technology 
+                    to beginners. The tone should be professional yet approachable, with emphasis on key concepts."</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Audio Delivery Section -->
+        <section class="audio-delivery-section fade-in">
+            <div class="delivery-header">
+                <div class="delivery-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 style="color: var(--secondary); margin-bottom: 15px; font-size: 2.2rem;">
+                    Delivered Audio File
+                </h2>
+                <p style="color: var(--gray); max-width: 600px; margin: 0 auto;">
+                    This is the final audio file delivered to the client. Click play to hear the professional narration.
+                </p>
+            </div>
+
+            <div class="audio-player-container">
+                <h3 style="color: var(--secondary); margin-bottom: 20px; text-align: left;">
+                    <i class="fas fa-headphones"></i> Blockchain Technology Explained
+                </h3>
+                
+                <audio controls class="custom-audio-player" id="blockchainAudio">
+                    <!-- Replace with your audio file path -->
+                    <source src="music/555.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                    <span style="color: var(--gray); font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> File: blockchain-explained.mp3
+                    </span>
+                    <span style="color: var(--gray); font-size: 0.9rem;">
+                        <i class="fas fa-clock"></i> 31 seconds
+                    </span>
+                </div>
+
+                <div class="audio-quality-info">
+                    <div class="quality-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Studio Quality Audio</span>
+                    </div>
+                    <div class="quality-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Noise Reduction Applied</span>
+                    </div>
+                    <div class="quality-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Professional Editing</span>
+                    </div>
+                    <div class="quality-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Client-Approved Tone</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; background: white; padding: 25px; border-radius: 10px; max-width: 600px; margin: 40px auto;">
+                <h4 style="color: var(--secondary); margin-bottom: 15px;">
+                    <i class="fas fa-star"></i> What the Client Said:
+                </h4>
+                <p style="color: var(--dark); font-style: italic; position: relative; padding-left: 20px;">
+                    <i class="fas fa-quote-left" style="color: var(--accent); position: absolute; left: 0; top: 0; font-size: 1.5rem;"></i>
+                    "The audio quality and narration style exceeded our expectations. Samiullah perfectly captured the professional 
+                    yet approachable tone we needed for our educational content. Will definitely work together again!"
+                </p>
+                <p style="margin-top: 15px; color: var(--gray); text-align: right;">
+                    — Tech Education Solutions Inc.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- TTS Features -->
+        <section class="tts-features">
+            <h2 style="text-align: center; color: var(--secondary); margin-bottom: 40px; font-size: 2.5rem;">
+                My Text to Speech Services Include
+            </h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3>Professional Narration</h3>
+                    <p>Clear, engaging voice overs for educational content, commercials, and corporate videos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <h3>Audio Editing</h3>
+                    <p>Noise reduction, volume leveling, and professional mastering for broadcast quality.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-export"></i>
+                    </div>
+                    <h3>Multiple Formats</h3>
+                    <p>Delivery in MP3, WAV, M4A, and other formats as per client requirements.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Need Professional Text to Speech?</h2>
+            <p style="max-width: 600px; margin: 0 auto 30px; opacity: 0.9; font-size: 1.1rem;">
+                Whether it's for educational content, commercial videos, or corporate presentations, I provide high-quality English narration that brings your text to life.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="cta-button">
+                    <i class="fas fa-paper-plane"></i> Request Voice Over Quote
+                </a>
+                <a href="interpretation.html" class="cta-button secondary">
+                    <i class="fas fa-microphone-alt"></i> View Interpretation Services
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="service-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 style="margin-bottom: 20px; color: white;">
+                        <i class="fas fa-volume-up"></i> Samiullah Mohammadi
+                    </h3>
+                    <p style="color: #adb5bd;">Professional English Voice Over & Text to Speech Services</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 15px; color: white;">Services</h4>
+                    <p style="color: #adb5bd;">Text to Speech Narration</p>
+                    <p style="color: #adb5bd;">Voice Over Recording</p>
+                    <p style="color: #adb5bd;">Audio Editing</p>
+                    <p style="color: #adb5bd;">Script Consultation</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 15px; color: white;">Quick Links</h4>
+                    <p><a href="index.html" style="color: #adb5bd; text-decoration: none;">Portfolio</a></p>
+                    <p><a href="service-interpretation.html" style="color: #adb5bd; text-decoration: none;">Interpretation</a></p>
+                    <p><a href="service-audio.html" style="color: #adb5bd; text-decoration: none;">Transcription</a></p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 15px; color: white;">Contact</h4>
+                    <p style="color: #adb5bd;">samiullah@example.com</p>
+                    <p style="color: #adb5bd;">+1 (234) 567-890</p>
+                    <p style="margin-top: 15px; color: #adb5bd; font-size: 0.9rem;">
+                        24/7 project inquiries accepted
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Samiullah Mohammadi. All rights reserved.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">
+                    <i class="fas fa-volume-up"></i> Sample Project: Blockchain Technology Narration
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Audio player functionality
+        const audioPlayer = document.getElementById('blockchainAudio');
+        
+        // Initialize volume
+        audioPlayer.volume = 0.8;
+        
+        // Play button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const playButton = document.createElement('button');
+            playButton.innerHTML = '<i class="fas fa-play"></i> Play Delivered Audio';
+            playButton.style.cssText = `
+                background: linear-gradient(135deg, var(--primary), var(--secondary));
+                color: white;
+                border: none;
+                padding: 15px 40px;
+                border-radius: 50px;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 1.1rem;
+                margin: 20px auto;
+                display: block;
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+            `;
+            
+            playButton.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 15px 30px rgba(67, 97, 238, 0.4)';
+            });
+            
+            playButton.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 10px 20px rgba(67, 97, 238, 0.3)';
+            });
+            
+            playButton.addEventListener('click', function() {
+                if (audioPlayer.paused) {
+                    audioPlayer.play();
+                    this.innerHTML = '<i class="fas fa-pause"></i> Pause Audio';
+                } else {
+                    audioPlayer.pause();
+                    this.innerHTML = '<i class="fas fa-play"></i> Play Delivered Audio';
+                }
+            });
+            
+            // Insert play button after audio player
+            const audioContainer = document.querySelector('.audio-player-container');
+            audioContainer.appendChild(playButton);
+            
+            // Audio player state tracking
+            audioPlayer.addEventListener('play', function() {
+                playButton.innerHTML = '<i class="fas fa-pause"></i> Pause Audio';
+            });
+            
+            audioPlayer.addEventListener('pause', function() {
+                playButton.innerHTML = '<i class="fas fa-play"></i> Play Delivered Audio';
+            });
+            
+            audioPlayer.addEventListener('ended', function() {
+                playButton.innerHTML = '<i class="fas fa-redo"></i> Play Again';
+            });
+        });
+
+        // File download simulation
+        document.querySelectorAll('.download-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const fileName = this.textContent.includes('MP3') ? 'blockchain-explained.mp3' :
+                                this.textContent.includes('PDF') ? 'blockchain-script.pdf' :
+                                'blockchain-project.zip';
+                
+                // Create a temporary download notification
+                const notification = document.createElement('div');
+                notification.innerHTML = `
+                    <div style="position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 10000; animation: slideIn 0.3s ease;">
+                        <i class="fas fa-download"></i> Downloading ${fileName}...
+                    </div>
+                `;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            });
+        });
+
+        // Add animation for elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add style for slideIn animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
